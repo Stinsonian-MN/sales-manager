@@ -1,0 +1,252 @@
+/* ============================================================
+   STINSON SERVICES — SHARED DESIGN SYSTEM
+   All tools import this file for consistent brand + layout.
+   Last updated: April 2026
+   ============================================================ */
+
+/* ── GOOGLE FONTS ── */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap');
+
+/* ── DESIGN TOKENS ── */
+:root {
+  /* Brand colors */
+  --ink:        #0f1117;
+  --ink-2:      #3a3d47;
+  --ink-3:      #72757f;
+  --ink-4:      #a8aab2;
+  --paper:      #f5f3ee;
+  --paper-2:    #ede9e1;
+  --paper-3:    #e2ddd4;
+  --rule:       #d4cfc5;
+
+  /* Semantic colors */
+  --accent:     #1a4a8a;
+  --accent-lt:  #e8eef7;
+  --green:      #1a6640;
+  --green-lt:   #e6f2ec;
+  --amber:      #8a4e00;
+  --amber-lt:   #fdf0e0;
+  --red:        #8a1a1a;
+  --red-lt:     #fce8e8;
+
+  /* Rep colors */
+  --rep-hs:     #2a5fa8;
+  --rep-jv:     #1a7a4a;
+  --rep-ja:     #8a5a00;
+  --rep-rs:     #8a2040;
+
+  /* Typography */
+  --serif:  'DM Serif Display', Georgia, serif;
+  --sans:   'Instrument Sans', system-ui, sans-serif;
+  --mono:   'DM Mono', monospace;
+
+  /* Layout */
+  --max-width: 1100px;
+  --radius:    8px;
+  --radius-lg: 12px;
+}
+
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── BASE ── */
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ── MASTHEAD ── */
+.masthead {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 20px 32px 16px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--accent);
+}
+.masthead h1 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+.masthead h1 em { font-style: italic; color: #8fa8d0; }
+.masthead-sub {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: #8fa8d0;
+  margin-top: 5px;
+  letter-spacing: .08em;
+}
+
+/* ── NAVIGATION BAR (back to Sales Manager home) ── */
+.tool-nav {
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--rule);
+  padding: 8px 32px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.tool-nav a {
+  color: var(--accent);
+  text-decoration: none;
+}
+.tool-nav a:hover { text-decoration: underline; }
+.tool-nav .sep { color: var(--ink-4); }
+
+/* ── CARDS ── */
+.card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+.card-lg {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+/* ── METRIC CARDS ── */
+.metric-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  padding: 12px;
+  position: relative;
+  overflow: hidden;
+}
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+}
+.metric-card.green::before { background: var(--green); }
+.metric-card.amber::before { background: #c97a00; }
+.metric-card.red::before   { background: var(--red); }
+.metric-card label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-3);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 6px;
+}
+.metric-value {
+  font-family: var(--mono);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ── BUTTONS ── */
+.btn {
+  padding: 8px 16px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+.btn:hover { background: var(--paper-2); border-color: var(--ink-3); }
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+}
+.btn-primary:hover { opacity: .85; background: var(--accent); }
+.btn-mono {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+/* ── FORM ELEMENTS ── */
+input[type=text],
+input[type=number],
+input[type=date],
+input[type=url],
+select,
+textarea {
+  font-family: var(--sans);
+  font-size: 13px;
+  padding: 7px 10px;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--ink);
+  outline: none;
+  transition: border-color .15s;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+}
+textarea { resize: vertical; line-height: 1.6; }
+
+/* ── LABELS ── */
+.field-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-3);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ── PROGRESS BAR ── */
+.prog-track {
+  height: 4px;
+  background: var(--paper-3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.prog-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width .4s ease, background .3s;
+}
+
+/* ── DIVIDER ── */
+.divider { height: 1px; background: var(--rule); margin: 14px 0; }
+
+/* ── MONO LABEL ── */
+.mono-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--ink-3);
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+/* ── UTILITY ── */
+.text-muted  { color: var(--ink-3); }
+.text-hint   { color: var(--ink-4); }
+.text-mono   { font-family: var(--mono); }
+.text-serif  { font-family: var(--serif); }
+.text-sm     { font-size: 12px; }
+.text-xs     { font-size: 11px; }
+
+/* ── PRINT ── */
+@media print {
+  .tool-nav { display: none; }
+  body { background: white; }
+}

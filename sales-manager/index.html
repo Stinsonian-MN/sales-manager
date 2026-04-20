@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sales Manager — Stinson Services</title>
+<link rel="stylesheet" href="../assets/css/stinson.css">
+<style>
+  .main { padding: 28px 32px 60px; max-width: var(--max-width); }
+
+  .welcome {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .welcome h2 {
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+  .welcome p { font-size: 13px; color: var(--ink-3); line-height: 1.7; }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-3);
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+
+  .tool-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    padding: 18px 20px;
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: border-color .15s, background .15s;
+    position: relative;
+    overflow: hidden;
+  }
+  .tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    transition: height .15s;
+  }
+  .tool-card.green::before { background: var(--green); }
+  .tool-card.amber::before { background: #c97a00; }
+  .tool-card:hover {
+    border-color: var(--ink-3);
+    background: var(--paper-2);
+  }
+  .tool-card:hover::before { height: 4px; }
+
+  .tool-icon {
+    font-size: 22px;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .tool-name {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .tool-desc {
+    font-size: 12px;
+    color: var(--ink-3);
+    line-height: 1.6;
+  }
+  .tool-tag {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-4);
+    letter-spacing: .05em;
+    margin-top: 4px;
+  }
+
+  .coming-soon {
+    opacity: .5;
+    cursor: default;
+    pointer-events: none;
+  }
+  .coming-soon .tool-tag { color: var(--amber); opacity: 1; }
+
+  .resources {
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-top: 8px;
+  }
+  .resources h3 { font-size: 13px; font-weight: 600; margin-bottom: 10px; }
+  .resource-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .resource-list li { font-size: 12px; display: flex; align-items: center; gap: 8px; }
+  .resource-list a { color: var(--accent); text-decoration: none; }
+  .resource-list a:hover { text-decoration: underline; }
+  .resource-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--rule); flex-shrink: 0;
+  }
+
+  .footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-4);
+    letter-spacing: .05em;
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div>
+    <h1>Stinson Services &nbsp;<em>Sales Manager</em></h1>
+    <div class="masthead-sub">Internal tools · FY Apr 2026 – Mar 2027</div>
+  </div>
+</div>
+
+<div class="main">
+
+  <div class="welcome">
+    <h2>Sales Manager Tools</h2>
+    <p>Internal tools for pipeline management, rep coaching, and performance tracking. All tools run locally in your browser — no data is sent to any server.</p>
+  </div>
+
+  <div class="section-label">Active tools</div>
+  <div class="tools-grid">
+
+    <a href="./weekly-review/" class="tool-card">
+      <div class="tool-icon">📊</div>
+      <div class="tool-name">Weekly Sales Review</div>
+      <div class="tool-desc">Pipeline dashboard with per-rep tracking, opportunity status, and progress vs $1.5M target. Upload your CSV to populate.</div>
+      <div class="tool-tag">weekly-review/</div>
+    </a>
+
+    <a href="./1on1-agenda/" class="tool-card green">
+      <div class="tool-icon">🗂</div>
+      <div class="tool-name">Weekly 1-on-1 Agenda</div>
+      <div class="tool-desc">SLII-informed meeting agenda covering pipeline, self-gen activity, coaching, and action items. Generates a Notion record at close.</div>
+      <div class="tool-tag">1on1-agenda/</div>
+    </a>
+
+    <div class="tool-card amber coming-soon">
+      <div class="tool-icon">📋</div>
+      <div class="tool-name">Estimator</div>
+      <div class="tool-desc">Pricing and job estimating tool based on the Master Estimating Sheet.</div>
+      <div class="tool-tag">Coming soon</div>
+    </div>
+
+    <div class="tool-card coming-soon">
+      <div class="tool-icon">📈</div>
+      <div class="tool-name">Rep Dashboard</div>
+      <div class="tool-desc">Individual rep scorecard showing pipeline health, self-gen activity trends, and SLII development over time.</div>
+      <div class="tool-tag">Coming soon</div>
+    </div>
+
+  </div>
+
+  <div class="section-label">Quick reference</div>
+  <div class="resources">
+    <h3>SLII Resources</h3>
+    <ul class="resource-list">
+      <li><span class="resource-dot"></span><span>Before each 1-on-1: have rep complete the <strong>One-on-One Worksheet</strong> and email it 24 hrs prior</span></li>
+      <li><span class="resource-dot"></span><span>D1 → S1 Directing &nbsp;|&nbsp; D2 → S2 Coaching &nbsp;|&nbsp; D3 → S3 Supporting &nbsp;|&nbsp; D4 → S4 Delegating</span></li>
+      <li><span class="resource-dot"></span><span>Pipeline target: <strong>$1.5M per rep</strong> &nbsp;|&nbsp; FY Apr 2026 – Mar 2027</span></li>
+      <li><span class="resource-dot"></span><span>Self-gen metrics: leads, appointments booked, contracts delivered — tracked weekly in TickTick</span></li>
+      <li><span class="resource-dot"></span><span>Post-meeting: forward Fireflies digest + log action items in TickTick + paste record into Notion Meeting Records</span></li>
+    </ul>
+  </div>
+
+  <div class="footer">
+    stinson-tools &nbsp;·&nbsp; Vercel + GitHub &nbsp;·&nbsp; Static HTML — no backend, no data stored
+  </div>
+
+</div>
+
+</body>
+</html>
